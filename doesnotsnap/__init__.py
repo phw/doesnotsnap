@@ -6,7 +6,10 @@ from PyQt5 import (
     QtNetwork,
     QtWidgets,
 )
-
+from PyQt5.QtCore import (
+    PYQT_VERSION_STR as pyqt_version,
+    qVersion,
+)
 
 class MainWindow(QtWidgets.QMainWindow):
     pass
@@ -17,6 +20,8 @@ class Application(QtWidgets.QApplication):
         super().__init__(argv)
         self.manager = QtNetwork.QNetworkAccessManager()
         self.window = MainWindow()
+        print("PyQt %s" % pyqt_version)
+        print("Qt %s" % qVersion())
 
     def run(self):
         self.window.show()
