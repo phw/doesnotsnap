@@ -20,9 +20,9 @@ class WebService(QtCore.QObject):
 
     def __init__(self, parent=None) -> None:
         super().__init__(parent=parent)
-        print("Before QNetworkAccessManager")
+        print("WebService: Before QNetworkAccessManager")
         self.manager = QtNetwork.QNetworkAccessManager()
-        print("After QNetworkAccessManager")
+        print("WebService: After QNetworkAccessManager")
 
 
 class Application(QtWidgets.QApplication):
@@ -30,6 +30,9 @@ class Application(QtWidgets.QApplication):
         print("PyQt %s" % pyqt_version)
         print("Qt %s" % qVersion())
         super().__init__(argv)
+        print("Application: Before QNetworkAccessManager")
+        self.manager = QtNetwork.QNetworkAccessManager()
+        print("Application: After QNetworkAccessManager")
         self.webservice = WebService()
         self.window = MainWindow()
 
