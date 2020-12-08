@@ -1,0 +1,24 @@
+name: doesnotsnap
+version: 0.0.1
+grade: stable
+confinement: strict
+base: core18
+summary: Does Not Snap!
+description: Really does not snap
+
+apps:
+  doesnotsnap:
+    command: bin/doesnotsnap
+    extensions:
+      - kde-neon
+    plugs:
+      - home
+      - network
+      - network-bind
+      - network-manager-observe
+      - opengl
+
+parts:
+  doesnotsnap:
+    source: .
+    plugin: python
