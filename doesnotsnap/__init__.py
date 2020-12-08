@@ -30,11 +30,11 @@ class Application(QtWidgets.QApplication):
         print("PyQt %s" % pyqt_version)
         print("Qt %s" % qVersion())
         super().__init__(argv)
+        self.window = MainWindow()
         print("Application: Before QNetworkAccessManager")
         self.manager = QtNetwork.QNetworkAccessManager()
         print("Application: After QNetworkAccessManager")
         self.webservice = WebService()
-        self.window = MainWindow()
 
     def run(self):
         self.window.show()
